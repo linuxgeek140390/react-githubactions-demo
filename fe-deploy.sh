@@ -1,5 +1,5 @@
 
-#!/bin/bash
+#!/bin/sh
  
 CURR_BRANCH=$(git status| head -1 | awk '{print $NF}')
 if [ "$CURR_BRANCH" == "dev" ]; then
