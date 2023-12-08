@@ -1,0 +1,23 @@
+name: Execute EAMS Front end deploy Script
+
+on:
+  push:
+    branches:
+      - dev
+      - qa
+      - main
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Run Shell Script
+      run: |
+        chmod +x ui-deploy.sh
+        sh fe-deploy.sh
