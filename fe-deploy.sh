@@ -2,6 +2,8 @@
 #!/bin/sh
  
 CURR_BRANCH=$(git status| head -1 | awk '{print $NF}')
+echo $CURR_BRANCH
+whereis bash
 if [[ "$CURR_BRANCH" == "dev" ]]; then
 ENV_FILE=".env.dev"
 elif [[ "$CURR_BRANCH" == "qa" ]]; then
