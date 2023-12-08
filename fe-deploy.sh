@@ -2,11 +2,11 @@
 #!/bin/bash
  
 CURR_BRANCH=$(git status| head -1 | awk '{print $NF}')
-if [[ $CURR_BRANCH == "dev" ]]; then
+if [[ "$CURR_BRANCH" == "dev" ]]; then
 ENV_FILE=".env.dev"
-elif [[ $CURR_BRANCH == "qa" ]]; then
+elif [[ "$CURR_BRANCH" == "qa" ]]; then
 ENV_FILE=".env.qa"
-elif [[ $CURR_BRANCH == "main" ]]; then
+elif [[ "$CURR_BRANCH" == "main" ]]; then
 ENV_FILE=".env.prod"
 else
 echo "Unknown branch. Unable to determine environment."
