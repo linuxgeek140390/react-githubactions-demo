@@ -1,5 +1,5 @@
 
-#!/bin/sh
+#!/usr/bin/bash
  
 CURR_BRANCH=$(git status| head -1 | awk '{print $NF}')
 echo $CURR_BRANCH
