@@ -1,12 +1,12 @@
 
 #!/bin/bash
  
-
-if [[ $GITHUB_REF == refs/heads/dev ]]; then
+CURR_BRANCH=$(git status| head -1 | awk '{print $NF}')
+if [[ $CURR_BRANCH == "dev" ]]; then
 ENV_FILE=".env.dev"
-elif [[ $GITHUB_REF == refs/heads/qa ]]; then
+elif [[ $CURR_BRANCH == "qa" ]]; then
 ENV_FILE=".env.qa"
-elif [[ $GITHUB_REF == refs/heads/main ]]; then
+elif [[ $CURR_BRANCH == "main" ]]; then
 ENV_FILE=".env.prod"
 else
 echo "Unknown branch. Unable to determine environment."
@@ -16,4 +16,3 @@ fi
 echo "Creating $ENV_FILE..."
 echo "REACT_APP_API_BASE = $(grep "REACT_APP_API_BASE" $ENV_FILE)" > .env
 cat .env
-
