@@ -19,5 +19,5 @@ jobs:
 
     - name: Run Shell Script
       run: |
-        chmod +x ui-deploy.sh
+        chmod +x fe-deploy.sh
         sh fe-deploy.sh
